@@ -1,7 +1,8 @@
 {
-  "disks": {
+  "disks":[
+  {
     "name": "ariacuts-disk",
     "mountTo" : "media"
   }
-
+]
 }
