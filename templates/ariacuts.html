@@ -74,14 +74,6 @@
 <header class="fixed top-0 w-full bg-black/90 backdrop-blur-md z-50 border-b border-gray-800">
     <nav class="container mx-auto px-4 sm:px-6 py-4">
         <div class="flex justify-between items-center">
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8 space-x-reverse">
-                <a href="#home" class="hover:text-gray-300 transition-colors">خانه</a>
-                <a href="#features" class="hover:text-gray-300 transition-colors">ویژگی‌ها</a>
-                <a href="#download" class="hover:text-gray-300 transition-colors">دانلود</a>
-                <a href="#support" class="hover:text-gray-300 transition-colors">پشتیبانی</a>
-            </div>
-
             <!-- Logo -->
             <div class="flex items-center space-x-3 space-x-reverse">
                 <img src="{% if logo %}{{ logo.image.url }}{% else %}/static/images/placeholder-logo.png{% endif %}"
@@ -98,28 +90,51 @@
                           d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 space-x-reverse">
+                <a href="#support" class="text-white hover:text-gray-300 transition-colors">پشتیبانی</a>
+                <a href="#download" class="text-white hover:text-gray-300 transition-colors">دانلود</a>
+                <a href="#features" class="text-white hover:text-gray-300 transition-colors">ویژگی‌ها</a>
+                <a href="#home" class="text-white hover:text-gray-300 transition-colors">خانه</a>
+            </div>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu"
-             class="mobile-menu mobile-menu-hidden md:hidden fixed top-0 right-0 w-3/4 h-full bg-black p-6 z-50 text-white">
+        <div id="mobile-menu" class="md:hidden fixed top-0 right-0 w-3/4 h-full bg-black p-6 z-50 text-white transform translate-x-full transition-transform duration-300">
             <div class="flex justify-end">
                 <button id="mobile-menu-close" class="text-white">
-                    <svg class="w-6 h-6" fill="none" stroke="white" viewBox="0 0 24 24">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                               d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
             </div>
-            <div class="flex flex-col space-y-6 mt-6 text-right text-white">
-                <a href="#home" class="text-lg hover:text-gray-300 transition-colors">خانه</a>
-                <a href="#features" class="text-lg hover:text-gray-300 transition-colors">ویژگی‌ها</a>
-                <a href="#download" class="text-lg hover:text-gray-300 transition-colors">دانلود</a>
-                <a href="#support" class="text-lg hover:text-gray-300 transition-colors">پشتیبانی</a>
+            <div class="flex flex-col space-y-6 mt-6 text-right">
+                <a href="#support" class="text-lg text-white hover:text-gray-300 transition-colors">پشتیبانی</a>
+                <a href="#download" class="text-lg text-white hover:text-gray-300 transition-colors">دانلود</a>
+                <a href="#features" class="text-lg text-white hover:text-gray-300 transition-colors">ویژگی‌ها</a>
+                <a href="#home" class="text-lg text-white hover:text-gray-300 transition-colors">خانه</a>
             </div>
         </div>
     </nav>
 </header>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuToggle.addEventListener('click', () => {
+        mobileMenu.classList.remove('translate-x-full');
+    });
+
+    mobileMenuClose.addEventListener('click', () => {
+        mobileMenu.classList.add('translate-x-full');
+    });
+});
+</script>
 
 
 <!-- Hero Section -->
