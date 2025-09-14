@@ -82,10 +82,10 @@
                 </div>
             </div>
             <div class="hidden md:flex space-x-8 space-x-reverse">
-                <a href="#home" class="hover:text-gray-300 transition-colors">خانه</a>
-                <a href="#features" class="hover:text-gray-300 transition-colors">ویژگی‌ها</a>
-                <a href="#download" class="hover:text-gray-300 transition-colors">دانلود</a>
-                <a href="#support" class="hover:text-gray-300 transition-colors">پشتیبانی</a>
+                <a href="#support" class="text-white hover:text-gray-300 transition-colors">پشتیبانی</a>
+                <a href="#download" class="text-white hover:text-gray-300 transition-colors">دانلود</a>
+                <a href="#features" class="text-white hover:text-gray-300 transition-colors">ویژگی‌ها</a>
+                <a href="#home" class="text-white hover:text-gray-300 transition-colors">خانه</a>
             </div>
             <button id="mobile-menu-toggle" class="md:hidden text-white">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -95,8 +95,7 @@
             </button>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu"
-             class="mobile-menu mobile-menu-hidden md:hidden fixed top-0 right-0 w-3/4 h-full bg-black p-6 z-50 text-white">
+        <div id="mobile-menu" class="md:hidden fixed top-0 right-0 w-3/4 h-full bg-black p-6 z-50 text-white transform translate-x-full transition-transform duration-300">
             <div class="flex justify-end">
                 <button id="mobile-menu-close" class="text-white">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -105,15 +104,31 @@
                     </svg>
                 </button>
             </div>
-            <div class="flex flex-col space-y-6 mt-6 text-right text-white">
-                <a href="#home" class="text-lg hover:text-gray-300 transition-colors">خانه</a>
-                <a href="#features" class="text-lg hover:text-gray-300 transition-colors">ویژگی‌ها</a>
-                <a href="#download" class="text-lg hover:text-gray-300 transition-colors">دانلود</a>
-                <a href="#support" class="text-lg hover:text-gray-300 transition-colors">پشتیبانی</a>
+            <div class="flex flex-col space-y-6 mt-6 text-right">
+                <a href="#support" class="text-lg text-white hover:text-gray-300 transition-colors">پشتیبانی</a>
+                <a href="#download" class="text-lg text-white hover:text-gray-300 transition-colors">دانلود</a>
+                <a href="#features" class="text-lg text-white hover:text-gray-300 transition-colors">ویژگی‌ها</a>
+                <a href="#home" class="text-lg text-white hover:text-gray-300 transition-colors">خانه</a>
             </div>
         </div>
     </nav>
 </header>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('translate-x-full');
+    });
+
+    mobileMenuClose.addEventListener('click', () => {
+        mobileMenu.classList.add('translate-x-full');
+    });
+});
+</script>
 
 <!-- Hero Section -->
 <section id="home"
